@@ -30,6 +30,7 @@ const mostRepetedCharacter = (string) => {
   let arrOfArr = [];
   const arrayIneed = string.split('');
   arrayIneed.sort();
+  console.log(arrayIneed);
   for (let i = 0; i < arrayIneed.length; i++) {
     if (arrayIneed[i] === arrayIneed[i + 1]) {
       counter++;
@@ -38,7 +39,8 @@ const mostRepetedCharacter = (string) => {
       counter = 1;
     }
   }
-  arrOfArr.sort((a, b) => b - a);
+  arrOfArr.sort((a, b) => b[0] - a[0]);
+  console.log(arrOfArr);
   firstResult.append(arrOfArr[0][1]);
 };
 
@@ -56,3 +58,8 @@ const sumOfBiggestNumbers = (array, nr) => {
   secondResult.append(`\nThe sum is ${sum}!`);
 };
 
+
+
+
+
+  
