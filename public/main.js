@@ -1,6 +1,7 @@
 let firstUserInput = '';
 let secondUserInput = [];
 let thirdUserInput = 0;
+let arrayClone = [];
 
 let firstSubmitButton = document.getElementById('1stSubmitButton');
 let secondSubmitButton = document.getElementById('2ndSubmitButton');
@@ -18,6 +19,8 @@ firstSubmitButton.addEventListener('click', () => {
 secondSubmitButton.addEventListener('click', () => {
   secondUserInput.push(document.getElementById('2ndUserInput').value);
   console.log(secondUserInput);
+  arrayClone = [...secondUserInput];
+  console.log(arrayClone);
 });
 
 thirdSubmitButton.addEventListener('click', () => {
@@ -46,16 +49,22 @@ const mostRepetedCharacter = (string) => {
 
 const sumOfBiggestNumbers = (array, nr) => {
   let sum = 0;
+  let index = 0;
+  let arrayOfIndexes = [];
   secondResult.append(`Your numbers are ${secondUserInput}!`);
   let sortedArray = array.sort((a, b) => b - a);
   console.log(sortedArray);
   for (let i = 0; i < nr; i++) {
     sum += parseInt(sortedArray[i]);
+    index = arrayClone.findIndex(nr => nr === sortedArray[i]);
+    arrayOfIndexes.push(index);
   }
   console.log(sum);
   console.log(typeof sum);
-  
+  console.log(arrayOfIndexes);
   secondResult.append(`\nThe sum is ${sum}!`);
+  secondResult.append(`\nAnd the indexes for the biggest numbers selected for the sum are: ${arrayOfIndexes}!`);
+
 };
 
 
